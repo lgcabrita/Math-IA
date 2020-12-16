@@ -1,0 +1,27 @@
+import numpy as np
+
+x = [0.0, 0.4, 0.8, 1.2, 1.6, 2.0, 2.4, 2.8, 3.2, 3.6, 4.0, 4.4, 4.8, 5.2, 5.6]
+y = [0.00, 1.20, 1.65, 1.85, 2.05, 2.10, 2.09, 2.05, 2.00, 1.85, 1.75, 1.55, 1.25, 0.90, 0.00]
+
+matrix_A = np.zeros((15, 15))
+
+HEIGHT = 15
+WIDTH = 15
+
+#fill A
+for i in range(WIDTH):
+    for j in range(HEIGHT):
+        matrix_A[i][j] = np.power(x[i], (15 - j))
+
+matrix_B = np.zeros((15, 1))
+
+#fill B
+for j in range(HEIGHT):
+    matrix_B[j] = y[j]
+
+print(matrix_A)
+print(matrix_B)
+
+
+np.linalg.solve(matrix_A, matrix_B)
+
